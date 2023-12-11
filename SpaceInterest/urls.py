@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from .views import HomePage
+from . import views
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^$', HomePage.as_view(), name='home')
-
+    re_path(r'^$', views.HomePage.as_view(), name='home'),
+    re_path(r'accounts/', include('accounts.urls', namespace='accounts')),
+    # connect Django's built-in authorization functionalities
+    re_path(r'accounts/', include('django.contrib.auth.urls'))
 ]
