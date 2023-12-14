@@ -26,7 +26,6 @@ urlpatterns = [
     # connect Django's built-in authorization functionalities
     re_path(r'accounts/', include('django.contrib.auth.urls')),
 
-    # Login & Logout urls
+    # Login urls for reverse redirection
     re_path(r'^success/$', views.LoggedInPage.as_view(), name='success'),
-    re_path('^logout/$', views.LogOutView.as_view(), name='logout'),
 ]
