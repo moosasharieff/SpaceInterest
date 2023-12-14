@@ -1,5 +1,4 @@
 
-
 from django.views.generic import TemplateView
 
 class HomePage(TemplateView):
@@ -8,7 +7,3 @@ class HomePage(TemplateView):
 
 class LoggedInPage(TemplateView):
     template_name = "success.html"
-
-class LogOutView(TemplateView):
-    """ Redirects to this page after logging out """
-    template_name = "logout.html"
