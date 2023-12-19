@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = Path.joinpath(BASE_DIR, "templates")
+GROUP_TEMPLATE_DIR = Path.joinpath(BASE_DIR, 'groups/templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'accounts',
+    'groups',
 
 ]
 
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'SpaceInterest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates', TEMPLATE_DIR, ]
+        'DIRS': [TEMPLATE_DIR, GROUP_TEMPLATE_DIR, ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
