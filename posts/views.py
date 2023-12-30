@@ -45,3 +45,14 @@ class UserPosts(generic.ListView):
          context = super().get_context_data(**kwargs)
          context['post_user'] = self.post_user
          return context
+
+class PostDetail(SelectRelatedMixin, generic.DetailView):
+    """ This class connects 'user' and 'group' foreign key model to Post model """
+    model = models.Post
+    select_related = ('user', 'group')
+
+    def get_queryset(self):
+        """ Queries user posts and returns them """
+        queryset = super().get_queryset()
+        return queryset.filter(user__username__iexact=self.kwargs.get("username"))
+
