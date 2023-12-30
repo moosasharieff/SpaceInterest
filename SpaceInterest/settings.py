@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = Path.joinpath(BASE_DIR, "templates")
 GROUP_TEMPLATE_DIR = Path.joinpath(BASE_DIR, 'groups/templates')
+POSTS_TEMPLATE_DIR = Path.joinpath(BASE_DIR, 'posts/templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'accounts',
     'groups',
+    'posts',
 
 ]
 
@@ -59,8 +61,7 @@ ROOT_URLCONF = 'SpaceInterest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR, GROUP_TEMPLATE_DIR, ]
-        ,
+        'DIRS': [ TEMPLATE_DIR, GROUP_TEMPLATE_DIR, POSTS_TEMPLATE_DIR ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
